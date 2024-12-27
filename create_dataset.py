@@ -5,8 +5,11 @@
 #This function is to get real time data from crypto currencty API everyday at 8:00 AM and will save the data into as a csv file
 
 import requests
+import schedule
+import time
 import pandas as pd
 from datetime import datetime
+from schedule_mail import send_mail
 
 def get_crypto_data():
 # API info
@@ -47,6 +50,36 @@ def get_crypto_data():
     #saving the data into a csv file
     df.to_csv(f'crypto_data_{today}.csv', index=False)
     print('Data saved in local directory')
+
+    #call email function to send report
+    subject = f'Crypto Data Report for {today}'
+    body = f"""
+    Good Morning!\n
+
+    Your daily crypto data report is ready. Please find the attached files for more details.\n\n
+    
+    Top 10 cryptocurrencies with highest price increase in last 24 hours are attached.\n
+    {top_positive}\n\n\n
+    Top 10 cryptocurrencies with highest price decrease in last 24 hours are attached.\n
+    {top_negative}\n\n\n
+
+    Acctached is the complete data of all cryptocurrencies.\n\n
+
+    Regards,\n
+    Yash777
+    """
+    send_mail(subject, body, f'crypto_data_{today}.csv')
+
   else:
     print('Failed to get data from API')
 
+
+#this will get executed only if we run this function
+if __name__ == '__main__':
+  get_crypto_data()
+  #schedule the function to run everyday at 8:00 AM
+  schedule.every().day.at('08:00').do(get_crypto_data)
+
+  while True:
+    schedule.run_pending()
+    time.sleep(1)
