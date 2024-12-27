@@ -54,7 +54,7 @@ The following technologies and libraries were used in this project:
 
 ## Email Report Example
 
-<img src="https://github.com/user-attachments/assets/b04c817b-4a84-4f1f-a689-cf563661722a" alt="Email Screenshot" width="800" height="400">
+<img src="https://github.com/user-attachments/assets/b04c817b-4a84-4f1f-a689-cf563661722a" alt="Email Screenshot" width="1200" height="800">
 
 ---
 
