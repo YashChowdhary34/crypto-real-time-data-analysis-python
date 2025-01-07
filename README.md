@@ -16,7 +16,8 @@ This project automates the process of fetching real-time cryptocurrency data, pe
 
 - [Project Workflow](#Project-Workflow)
 - [Tech Stack](#Tech-Stack)
-- [Example Outputss](#Example-Outputs)
+- [Outputs](#Outputs)
+- [Example Outputs](#Example-Outputs)
 - [Future Work](#future-work)
 - [Conclusion](#conclusion)
 
@@ -76,7 +77,7 @@ This project uses the following technologies and tools:
 
 ---
 
-## 📤 Outputs
+## Outputs
 
 This project generates the following outputs daily:
 
